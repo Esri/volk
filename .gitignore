@@ -1,2 +1,14 @@
 build/
 CMakeLists.txt.user
+
+# Premake generated files #
+###########################
+*.vcxproj*
+*.sln
+Makefile
+*.make
+*.xcworkspace
+*.xcodeproj
+compile_commands.json
+*_single_file_build.cpp
+*_unity_build.cpp
