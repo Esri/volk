@@ -10,9 +10,16 @@ class VolkConan(ConanFile):
     license = "https://github.com/Esri/volk/blob/runtimecore/LICENSE.md"
     description = ("Volk is a meta-loader for Vulkan")
     
+    # RTC specific triple
+    settings = "platform_architecture_target"
+    
     def package(self):
         base = self.source_folder + "/"
         relative = "3rdparty/volk/"
 
         # headers
         self.copy("*.h*", src=base, dst=relative)
+
+        # libraries
+        output = "output/" + str(self.settings.platform_architecture_target) + "/staticlib"
+        self.copy("*" + self.name + "*", src=base + "../../" + output, dst=output)
