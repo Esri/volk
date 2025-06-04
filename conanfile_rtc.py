@@ -5,7 +5,7 @@ from conans import ConanFile
 
 class VolkConan(ConanFile):
     name = "volk"
-    version = "1.3.285"
+    version = "1.4.316"
     url = "https://github.com/Esri/volk/blob/runtimecore/"
     license = "https://github.com/Esri/volk/blob/runtimecore/LICENSE.md"
     description = ("Volk is a meta-loader for Vulkan")
