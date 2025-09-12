@@ -23,4 +23,8 @@ elseif (_PLATFORM_LINUX) then
   defines {
     "VK_USE_PLATFORM_XLIB_KHR",
   }
+elseif (_PLATFORM_ANDROID) then
+  defines {
+    "VK_USE_PLATFORM_ANDROID_KHR",
+  }
 end
