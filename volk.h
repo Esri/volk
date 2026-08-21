@@ -19,7 +19,7 @@
 #endif
 
 /* VOLK_GENERATE_VERSION_DEFINE */
-#define VOLK_HEADER_VERSION 353
+#define VOLK_HEADER_VERSION 360
 /* VOLK_GENERATE_VERSION_DEFINE */
 
 #ifndef VK_NO_PROTOTYPES
@@ -315,6 +315,11 @@ struct VolkInstanceTable
 #else
 	PFN_vkVoidFunction padding_61710136[1];
 #endif /* defined(VK_EXT_calibrated_timestamps) */
+#if defined(VK_EXT_cooperative_matrix_maintenance1)
+	PFN_vkGetPhysicalDeviceCooperativeMatrixProperties2EXT vkGetPhysicalDeviceCooperativeMatrixProperties2EXT;
+#else
+	PFN_vkVoidFunction padding_c8d35e9d[1];
+#endif /* defined(VK_EXT_cooperative_matrix_maintenance1) */
 #if defined(VK_EXT_debug_report)
 	PFN_vkCreateDebugReportCallbackEXT vkCreateDebugReportCallbackEXT;
 	PFN_vkDebugReportMessageEXT vkDebugReportMessageEXT;
@@ -1809,6 +1814,17 @@ struct VolkDeviceTable
 #else
 	PFN_vkVoidFunction padding_4979ca14[1];
 #endif /* defined(VK_NV_fragment_shading_rate_enums) */
+#if defined(VK_NV_low_latency) && VK_NV_LOW_LATENCY_SPEC_VERSION >= 2
+	PFN_vkGetLatencyTimingsLegacyNV vkGetLatencyTimingsLegacyNV;
+	PFN_vkGetSleepStatusLegacyNV vkGetSleepStatusLegacyNV;
+	PFN_vkLatencySleepLegacyNV vkLatencySleepLegacyNV;
+	PFN_vkQueueNotifyOutOfBandLegacyNV vkQueueNotifyOutOfBandLegacyNV;
+	PFN_vkSetLatencyMarkerLegacyNV vkSetLatencyMarkerLegacyNV;
+	PFN_vkSetLatencySleepModeLegacyNV vkSetLatencySleepModeLegacyNV;
+	PFN_vkShutdownLatencyDeviceLegacyNV vkShutdownLatencyDeviceLegacyNV;
+#else
+	PFN_vkVoidFunction padding_f08173c[7];
+#endif /* defined(VK_NV_low_latency) && VK_NV_LOW_LATENCY_SPEC_VERSION >= 2 */
 #if defined(VK_NV_low_latency2)
 	PFN_vkGetLatencyTimingsNV vkGetLatencyTimingsNV;
 	PFN_vkLatencySleepNV vkLatencySleepNV;
@@ -2144,6 +2160,9 @@ extern PFN_vkGetRandROutputDisplayEXT vkGetRandROutputDisplayEXT;
 #if defined(VK_EXT_calibrated_timestamps)
 extern PFN_vkGetPhysicalDeviceCalibrateableTimeDomainsEXT vkGetPhysicalDeviceCalibrateableTimeDomainsEXT;
 #endif /* defined(VK_EXT_calibrated_timestamps) */
+#if defined(VK_EXT_cooperative_matrix_maintenance1)
+extern PFN_vkGetPhysicalDeviceCooperativeMatrixProperties2EXT vkGetPhysicalDeviceCooperativeMatrixProperties2EXT;
+#endif /* defined(VK_EXT_cooperative_matrix_maintenance1) */
 #if defined(VK_EXT_debug_report)
 extern PFN_vkCreateDebugReportCallbackEXT vkCreateDebugReportCallbackEXT;
 extern PFN_vkDebugReportMessageEXT vkDebugReportMessageEXT;
@@ -3237,6 +3256,15 @@ extern PFN_vkGetMemoryWin32HandleNV vkGetMemoryWin32HandleNV;
 #if defined(VK_NV_fragment_shading_rate_enums)
 extern PFN_vkCmdSetFragmentShadingRateEnumNV vkCmdSetFragmentShadingRateEnumNV;
 #endif /* defined(VK_NV_fragment_shading_rate_enums) */
+#if defined(VK_NV_low_latency) && VK_NV_LOW_LATENCY_SPEC_VERSION >= 2
+extern PFN_vkGetLatencyTimingsLegacyNV vkGetLatencyTimingsLegacyNV;
+extern PFN_vkGetSleepStatusLegacyNV vkGetSleepStatusLegacyNV;
+extern PFN_vkLatencySleepLegacyNV vkLatencySleepLegacyNV;
+extern PFN_vkQueueNotifyOutOfBandLegacyNV vkQueueNotifyOutOfBandLegacyNV;
+extern PFN_vkSetLatencyMarkerLegacyNV vkSetLatencyMarkerLegacyNV;
+extern PFN_vkSetLatencySleepModeLegacyNV vkSetLatencySleepModeLegacyNV;
+extern PFN_vkShutdownLatencyDeviceLegacyNV vkShutdownLatencyDeviceLegacyNV;
+#endif /* defined(VK_NV_low_latency) && VK_NV_LOW_LATENCY_SPEC_VERSION >= 2 */
 #if defined(VK_NV_low_latency2)
 extern PFN_vkGetLatencyTimingsNV vkGetLatencyTimingsNV;
 extern PFN_vkLatencySleepNV vkLatencySleepNV;
